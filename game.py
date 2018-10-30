@@ -33,9 +33,9 @@ class Game():
             self.matrizBotones.append([])
             for j in range(self.n_columnas):
                 boton = QtWidgets.QPushButton()
-                # boton.setIcon(QIcon(QPixmap('back.png')))
-                # boton.setIconSize(QSize(75, 75))
-                boton.setStyleSheet("QPushButton{background-image: url('back.png'); border: none; width: 100px; height: 100px;}")
+                boton.setIcon(QIcon(QPixmap('back.png')))
+                boton.setIconSize(QSize(100, 100))
+                boton.setStyleSheet('QPushButton{padding: 0; border:0px;}')
                 # Evento de cada boton
                 boton.clicked.connect(lambda checked, arg=(i, j): self.click(*arg))
                 # Se agrega el boton al layout de la ventana
@@ -48,8 +48,7 @@ class Game():
         if boton['emparejada']:
             return
         # Se muestra la imagen de la carta
-        # boton['btn'].setIcon(QIcon(QPixmap('cards/{}'.format(boton['imagen']))))
-        boton['btn'].setStyleSheet("QPushButton{background-image: url('{}');}".format(boton['imagen']))
+        boton['btn'].setIcon(QIcon(QPixmap('cards/{}'.format(boton['imagen']))))
         self.cartasSeleccionadas.append(boton)    
 
         if len(self.cartasSeleccionadas) > 2:
